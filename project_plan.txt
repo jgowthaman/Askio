@@ -1,0 +1,620 @@
+For a GitHub portfolio, don't think of this as "a ChatGPT clone." Think of it as Askio — A Multilingual AI Conversation Platform. The respone can share via email, WhatsApp, etc.,
+Your goal is to demonstrate:
+
+React architecture
+
+FastAPI architecture
+
+AI integration
+
+Secure backend design
+
+Good UI/UX
+
+Clean project structure
+
+Production-ready coding practices
+
+A clean separation of concerns (routers, services, validation, streaming) is a widely recommended approach for FastAPI projects, and streaming responses via StreamingResponse/SSE provides the ChatGPT-like experience users expect. (FastAPI)
+
+Project
+
+Project Name
+
+Askio
+
+Ask Anything.
+Every Language.
+Instant Answers.
+
+Phase 1 — Planning
+
+Goal
+
+Build a lightweight AI assistant.
+
+No login.
+
+No database.
+
+No chat history.
+
+No authentication.
+
+No user profiles.
+
+Only
+
+Question
+    ↓
+Safety Check
+    ↓
+AI Model
+    ↓
+Frontend
+Simple.
+
+Tech Stack
+
+Frontend
+
+React.js
+
+Vite
+
+Tailwind CSS
+
+Axios
+
+React Markdown
+
+React Syntax Highlighter
+
+Backend
+
+FastAPI
+
+Pydantic
+
+Uvicorn
+
+Python
+
+Better Profanity (or another profanity/toxicity filter)
+
+AI Provider SDK (OpenAI, Anthropic, Gemini, etc.)
+
+Folder Structure
+
+Frontend
+
+askio-client/
+
+src/
+
+    components/
+
+        Chat/
+
+        Message/
+
+        Sidebar/
+
+        Input/
+
+        Header/
+
+        Markdown/
+
+        Loader/
+
+    hooks/
+
+    services/
+
+    utils/
+
+    assets/
+
+    App.jsx
+
+Backend
+
+askio-server/
+
+app/
+
+    api/
+
+    services/
+
+    middleware/
+
+    schemas/
+
+    models/
+
+    utils/
+
+    prompts/
+
+    config/
+
+main.py
+
+Notice:
+
+No database folder.
+
+No auth folder.
+
+Keep it clean.
+
+Phase 2
+
+Design UI
+
+Create something modern.
+
+------------------------------------
+
+Askio Logo
+
+------------------------------------
+
+Chat Area
+
+------------------------------------
+
+AI Response
+
+------------------------------------
+
+Input Box
+
+[ Attachment ]
+
+[ Mic ]
+
+[ Send ]
+
+------------------------------------
+Theme
+
+Dark
+
+Minimal
+
+Rounded Corners
+
+Glass effect
+
+Animated
+
+Phase 3
+
+Chat Page
+
+Need
+
+Header
+
+Askio
+
+Status
+
+Model
+
+Latency
+Messages
+
+User
+
+Assistant
+
+Markdown Support
+
+Code Block
+
+Tables
+
+Lists
+
+Copy Button
+
+Input
+
+Textbox
+
+Character Counter
+
+Mic Button
+
+Send Button
+
+Phase 4
+
+Backend API
+
+POST
+
+/api/chat
+Receive
+
+Prompt
+Return
+
+Response
+Phase 5
+
+Validation
+
+Before AI
+
+Check
+
+Empty Prompt
+
+Maximum Length
+
+Invalid JSON
+
+Special Characters
+
+SQL Injection
+
+XSS
+
+HTML
+
+Return validation error if needed.
+
+Phase 6
+
+Safety Filter
+
+Flow
+
+User
+
+↓
+
+Profanity
+
+↓
+
+Toxicity
+
+↓
+
+Safe?
+
+↓
+
+AI
+If blocked
+
+Sorry.
+
+Your message violates our safety policy.
+Phase 7
+
+AI Layer
+
+Never call AI directly from the route.
+
+Instead
+
+Route
+
+↓
+
+Chat Service
+
+↓
+
+AI Service
+
+↓
+
+Model
+This makes changing providers much easier later.
+
+Phase 8
+
+Streaming Response ⭐
+
+Instead of
+
+Wait...
+
+Wait...
+
+Wait...
+
+Complete Response
+Do
+
+Hello
+
+Hello there
+
+Hello there!
+
+This feels much faster even when total generation time is the same. For chat-style apps, Server-Sent Events (SSE) with FastAPI streaming is generally simpler than WebSockets for one-way AI responses. (CallMissed)
+
+Phase 9
+
+Markdown
+
+Support
+
+#
+
+##
+
+###
+
+Lists
+
+Tables
+
+Quotes
+
+Code
+
+Links
+
+Images
+
+Phase 10
+
+Code Highlight
+
+If AI returns
+
+python
+
+javascript
+
+cpp
+
+java
+Automatically highlight.
+
+Add
+
+Copy Button
+Phase 11
+
+Multi Language ⭐
+
+User types
+
+Tamil
+AI
+
+Replies in Tamil
+
+User types
+
+Hindi
+Reply Hindi
+
+No dropdown.
+
+Auto detect.
+
+Phase 12
+
+Voice
+
+Mic
+
+↓
+
+Speech to Text
+
+↓
+
+AI
+
+↓
+
+Text
+
+↓
+
+Speech
+
+↓
+
+Play Audio
+
+Phase 13
+
+Loading Experience
+
+Instead of Spinner
+
+Show
+
+Understanding...
+
+Thinking...
+
+Writing...
+Users feel the app is actively working.
+
+Phase 14
+
+Temporary Memory
+
+While page open
+
+Remember
+
+My name is John
+Later
+
+What's my name?
+Answer
+
+John
+Refresh page
+
+Memory cleared.
+
+No DB.
+
+Phase 15
+
+Sidebar
+
+New Chat
+
+Clear Chat
+
+Export
+
+Settings
+
+About
+Phase 16
+
+Settings
+
+Theme
+
+Language
+
+Voice
+
+Response Length
+
+Temperature
+
+Phase 17
+
+Response Modes
+
+Dropdown
+
+Simple
+
+Detailed
+
+Professional
+
+Teacher
+
+Programmer
+
+Interviewer
+Each changes the system prompt.
+
+Phase 18
+
+Export
+
+Download
+
+TXT
+
+PDF
+
+Markdown
+Phase 19
+
+Metrics
+
+Show
+
+Latency
+
+Tokens
+
+Language
+
+Words
+
+Characters
+No storage required.
+
+Phase 20
+
+Error Handling
+
+Show friendly messages for:
+
+No Internet
+
+API Error
+
+Timeout
+
+Rate Limit
+
+Invalid Input
+
+Server Error
+Phase 21
+
+Performance
+
+Implement
+
+Lazy loading
+
+Code splitting
+
+Memoized components
+
+Debounced input
+
+Auto scroll
+
+Virtualized message list (optional)
+
+Phase 22
+
+Deployment
+
+Frontend
+
+Vercel
+
+Netlify
+
+Backend
+
+Render
+
+Railway
+
+Fly.io
+
+Phase 23
+
+README (This is what recruiters will see first)
+
+Include:
+
+Project overview
+
+Features
+
+Architecture diagram
+
+Screenshots
+
+Demo GIF
+
+Tech stack
+
+Installation guide
+
+Environment variables
+
+Future roadmap
+
